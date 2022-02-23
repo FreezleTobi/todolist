@@ -7,9 +7,9 @@ from flask import Flask, request, jsonify, abort
 app = Flask(__name__)
 
 # create unique id for lists, users, entries
-user_id_bob = uuid.uuid4()
-user_id_alice = uuid.uuid4()
-user_id_eve = uuid.uuid4()
+user_id_tobias = uuid.uuid4()
+user_id_jannik = uuid.uuid4()
+user_id_tim = uuid.uuid4()
 todo_list_1_id = '1318d3d1-d979-47e1-a225-dab1751dbe75'
 todo_list_2_id = '3062dc25-6b80-4315-bb1d-a7c86b014c65'
 todo_list_3_id = '44b02e00-03bc-451d-8d01-0c67ea866fee'
@@ -20,20 +20,21 @@ todo_4_id = uuid.uuid4()
 
 # define internal data structures with example data
 user_list = [
-    {'id': user_id_bob, 'name': 'Bob'},
-    {'id': user_id_alice, 'name': 'Alice'},
-    {'id': user_id_eve, 'name': 'Eve'},
+    {'id': user_id_tobias, 'name': 'Tobias'},
+    {'id': user_id_jannik, 'name': 'Jannik'},
+    {'id': user_id_tim, 'name': 'Tim'},
 ]
 todo_lists = [
-    {'id': todo_list_1_id, 'name': 'Einkaufsliste'},
+    {'id': todo_list_1_id, 'name': 'Einkaufen'},
     {'id': todo_list_2_id, 'name': 'Arbeit'},
     {'id': todo_list_3_id, 'name': 'Privat'},
 ]
 todos = [
-    {'id': todo_1_id, 'name': 'Milch', 'description': '', 'list': todo_list_1_id, 'user': user_id_bob},
-    {'id': todo_2_id, 'name': 'Arbeitsblätter ausdrucken', 'description': '', 'list': todo_list_2_id, 'user': user_id_alice},
-    {'id': todo_3_id, 'name': 'Kinokarten kaufen', 'description': '', 'list': todo_list_3_id, 'user': user_id_eve},
-    {'id': todo_3_id, 'name': 'Eier', 'description': '', 'list': todo_list_1_id, 'user': user_id_eve},
+    {'id': todo_1_id, 'name': 'Apfel', 'description': '', 'list': todo_list_1_id, 'user': user_id_tobias},
+    {'id': todo_1_id, 'name': 'Birne', 'description': '', 'list': todo_list_1_id, 'user': user_id_tim},
+    {'id': todo_2_id, 'name': 'Elixir Projekt', 'description': '', 'list': todo_list_2_id, 'user': user_id_jannik},
+    {'id': todo_2_id, 'name': 'FileMaker Projekt', 'description': '', 'list': todo_list_2_id, 'user': user_id_tobias},
+    {'id': todo_3_id, 'name': 'Waesche', 'description': '', 'list': todo_list_3_id, 'user': user_id_tobias},
 ]
 
 # add some headers to allow cross origin access to the API on this server, necessary for using preview in Swagger Editor!
