@@ -1,6 +1,6 @@
 import uuid 
 
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, render_template
 
 
 # Flask Server initialisieren
@@ -77,6 +77,8 @@ def add_new_list():
     new_list['id'] = uuid.uuid4()
     todo_lists.append(new_list)
     return jsonify(new_list), 200
+def index():
+    return render_template("index.html")
 
 if __name__ == '__main__':
     # starte Flask-Server
